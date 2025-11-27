@@ -5,131 +5,488 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Gowling Group Ltd | Flooring & Interiors Group</title>
 <meta name="description" content="Gowling Group Ltd is a UK-based investment and management company supporting a family of flooring and interiors brands, including distribution, trade counters and design-led LVT.">
-<style>:root{--bg:#f4f5f7;--white:#ffffff;--primary:#1f2a44;--accent:#a77a3d;--text:#222;--muted:#5f6b7b;--radius-lg:1.25rem;--max:1100px;}*{box-sizing:border-box;}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}header{background:radial-gradient(circle at top,#ffffff 0%,#dfe5f1 55%,#f4f5f7 100%);padding:3.5rem 1.25rem 3rem;text-align:center;}.container{width:min(100%,var(--max));margin:0 auto;}.logo{margin-bottom:1.8rem;}.logo svg{max-width:260px;height:auto;display:inline-block;}h1{font-size:clamp(2rem,4vw,2.6rem);margin-bottom:.75rem;color:var(--primary);}.subtitle{max-width:640px;margin:.5rem auto 1.8rem;color:var(--muted);}.hero-card{background:var(--white);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;display:inline-flex;gap:.75rem;align-items:center;box-shadow:0 10px 35px rgba(0,0,0,0.08);font-size:.9rem;margin-top:1rem;}.tag{background:rgba(167,122,61,0.12);color:var(--accent);padding:.25rem .65rem;border-radius:999px;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;}main{padding:3rem 1.25rem 4rem;}section{margin-bottom:3rem;}h2{font-size:1.35rem;margin-bottom:1rem;color:var(--primary);}p{margin-bottom:1rem;}.card{background:var(--white);border-radius:1rem;padding:1.5rem;box-shadow:0 10px 35px rgba(0,0,0,0.03);}.brands-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.25rem;}.brand-card{background:#fff;border:1px solid rgba(0,0,0,0.03);border-radius:.85rem;padding:1rem 1.1rem 1.05rem;display:flex;flex-direction:column;gap:.5rem;min-height:185px;justify-content:space-between;}.brand-title{font-weight:600;color:var(--primary);}.brand-desc{font-size:.86rem;color:var(--muted);}.brand-link{font-size:.8rem;color:var(--accent);text-decoration:none;font-weight:500;}.info-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:1.25rem;}.info-item{background:rgba(255,255,255,0.6);border-radius:.85rem;padding:1rem 1.2rem;border:1px solid rgba(0,0,0,0.02);}.info-item strong{color:var(--primary);}.info-item p{color:var(--muted);margin:.5rem 0 0;}footer{background:#111827;color:#e5e7eb;padding:1.8rem 1.25rem 3rem;text-align:center;font-size:.8rem;}a{word-break:break-word;}@media(max-width:600px){header{padding-top:3rem;}.hero-card{flex-direction:column;align-items:flex-start;}}</style>
+
+<!-- Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#f9f9fb;               /* CLEAN + FRESH */
+  --white:#ffffff;
+  --primary:#1c2537;
+  --accent:#a77a3d;
+  --text:#1b1b1b;
+  --muted:#6b7380;
+  --line:#e5e7eb;
+  --max:1200px;
+}
+
+/* Base */
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* Layout */
+.container {
+  width:min(100%,var(--max));
+  margin:0 auto;
+  padding:0 1.5rem;
+}
+
+/* Header */
+header {
+  background:
+    radial-gradient(circle at 0% -25%, rgba(255,255,255,1) 0%, rgba(250,250,252,1) 40%, rgba(245,246,250,1) 75%);
+  border-bottom:1px solid var(--line);
+  padding:1.5rem 0 3.5rem;
+}
+
+.site-header-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+  margin-bottom:2.25rem;
+}
+
+/* Text Logo */
+.logo {
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+.logo .main {
+  font-size:2.15rem;
+  font-weight:700;
+  color:var(--primary);
+  letter-spacing:1px;
+}
+.logo .sub {
+  font-size:1rem;
+  font-weight:500;
+  color:var(--muted);
+  letter-spacing:6px;
+}
+
+/* Navigation */
+nav ul {
+  list-style:none;
+  display:flex;
+  gap:1.75rem;
+  margin:0;
+  padding:0;
+}
+
+nav a {
+  font-size:0.9rem;
+  font-weight:500;
+  text-decoration:none;
+  color:var(--muted);
+  position:relative;
+  padding-bottom:0.2rem;
+}
+
+nav a::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:width 0.18s ease-out;
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+  width:100%;
+}
+
+/* Hero */
+.hero {
+  max-width:740px;
+  padding-bottom:0.5rem;
+}
+
+.hero h1 {
+  font-size:clamp(2.1rem,3.8vw,2.7rem);
+  margin:0 0 1rem;
+  font-weight:700;
+  color:var(--primary);
+}
+
+.hero-subtitle {
+  margin:0 0 1.75rem;
+  color:var(--muted);
+  font-size:1rem;
+}
+
+.hero-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.75rem 1.1rem;
+  align-items:center;
+}
+
+.tag {
+  background:rgba(167,122,61,0.14);
+  color:var(--accent);
+  padding:0.28rem 0.7rem;
+  border-radius:999px;
+  font-size:0.78rem;
+  font-weight:600;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+}
+
+.hero-meta-secondary {
+  font-size:0.88rem;
+  color:var(--muted);
+}
+
+/* Main */
+main {
+  padding:3rem 0 4rem;
+}
+
+section {
+  margin-bottom:3.75rem;
+}
+
+.section-header {
+  margin-bottom:1.4rem;
+}
+
+.section-header h2 {
+  font-size:1.45rem;
+  font-weight:700;
+  color:var(--primary);
+  margin:0 0 0.35rem;
+}
+
+.section-header p {
+  margin:0;
+  font-size:0.95rem;
+  color:var(--muted);
+}
+
+.card {
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:0.6rem;
+  padding:1.75rem 1.8rem;
+}
+
+/* Brands grid */
+.brands-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.25rem;
+  margin-top:1.25rem;
+}
+
+.brand-card {
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:0.5rem;
+  padding:1.3rem 1.4rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:170px;
+}
+
+.brand-title {
+  font-weight:600;
+  font-size:1rem;
+  color:var(--primary);
+}
+
+.brand-desc {
+  color:var(--muted);
+  font-size:0.88rem;
+  margin-top:0.4rem;
+}
+
+.brand-link {
+  margin-top:1.1rem;
+  font-size:0.8rem;
+  font-weight:600;
+  color:var(--accent);
+  text-decoration:none;
+}
+
+/* Focus section */
+.info-list {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1.25rem;
+  margin-top:1.4rem;
+}
+
+.info-item {
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:0.5rem;
+  padding:1.35rem 1.45rem;
+}
+
+.info-item strong {
+  display:block;
+  font-size:1rem;
+  margin-bottom:0.4rem;
+  color:var(--primary);
+}
+
+.info-item p {
+  margin:0;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+/* Contact — PERFECT ALIGNMENT GRID FIX */
+.contact-details p {
+  display:grid;
+  grid-template-columns: 110px 1fr;  /* label width + flexible content */
+  column-gap:1rem;
+  margin:0 0 0.6rem;
+}
+.contact-label {
+  font-weight:600;
+  color:var(--primary);
+  margin:0;
+}
+
+/* Footer */
+footer {
+  background:#1c2537;
+  color:#d4d7de;
+  text-align:center;
+  padding:2rem 1.5rem;
+  font-size:0.82rem;
+  border-top:1px solid #121723;
+}
+
+a { word-break:break-word; }
+
+/* Animations */
+@keyframes fade-in-up {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.animate { opacity:0; animation:fade-in-up 0.6s ease-out forwards; }
+.animate.delay-1 { animation-delay:0.1s; }
+.animate.delay-2 { animation-delay:0.2s; }
+.animate.delay-3 { animation-delay:0.3s; }
+.animate.delay-4 { animation-delay:0.4s; }
+
+/* Motion reduction */
+@media (prefers-reduced-motion: reduce) {
+  * { animation:none !important; }
+  .animate { opacity:1 !important; }
+}
+
+/* Responsive */
+@media(max-width:768px) {
+  .site-header-top { flex-direction:column; align-items:flex-start; }
+  nav ul { flex-wrap:wrap; gap:1.1rem; }
+  .contact-details p { grid-template-columns: 90px 1fr; }
+}
+
+@media(max-width:480px) {
+  .container { padding:0 1.2rem; }
+  .contact-details p { grid-template-columns: 80px 1fr; }
+}
+</style>
 </head>
+
 <body>
+
 <header>
   <div class="container">
-    <div class="logo">
-      <svg viewBox="0 0 320 180" xmlns=http://www.w3.org/2000/svg role="img" aria-label="Gowling Group Ltd">
-        <text x="50%" y="72" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="42" font-weight="700" fill="#000">GOWLING</text>
-        <text x="50%" y="118" text-anchor="middle" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="26" font-weight="500" fill="#777" letter-spacing="2">GROUP LTD</text>
-      </svg>
+    <div class="site-header-top">
+      <div class="logo">
+        <span class="main">GOWLING</span>
+        <span class="sub">GROUP LTD</span>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#focus">Our Focus</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <h1>Building Market-Leading Brands in UK Flooring & Interiors</h1>
-    <p class="subtitle">
-      Gowling Group Ltd is the parent company behind a growing family of specialist brands.<br>
-      We serve trade professionals, distributors and retailers throughout the UK.
-    </p>
-    <div class="hero-card" aria-label="Group overview">
-      <span class="tag">Group HQ - Northampton, UK</span>
-      <span>Independent | Brand-led | Customer-first</span>
+
+    <div class="hero animate">
+      <h1>Building Market-Leading Brands in UK Flooring &amp; Interiors</h1>
+      <p class="hero-subtitle">
+        Gowling Group Ltd is the parent organisation behind a portfolio of specialist flooring and interiors businesses,
+        supporting trade professionals, showrooms and distributors across the UK.
+      </p>
+      <div class="hero-meta">
+        <span class="tag">Group HQ — Northampton, UK</span>
+        <span class="hero-meta-secondary">Independent · Brand-led · Customer-focused</span>
+      </div>
     </div>
   </div>
 </header>
- 
+
 <main>
   <div class="container">
- 
-    <section aria-labelledby="about">
-      <h2 id="about">About Gowling Group</h2>
-      <div class="card">
-        <p>Gowling Group Ltd is a UK-based investment and management company focused on the flooring and interiors sector. We provide the structure, investment and shared services that enable our brands to operate independently while benefiting from group-level support.</p>
-        <p>Our operations span trade counters, distribution, product development and branded ranges — all with a commitment to reliability, value and long-term partnerships.</p>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-header animate delay-1">
+        <h2>About Gowling Group</h2>
+        <p>Strategic investment and management for flooring and interiors brands.</p>
+      </div>
+      <div class="card animate delay-2">
+        <p>
+          Gowling Group Ltd is an investment and management business dedicated to building strong, sustainable brands
+          within the flooring and interiors sector. We provide strategic direction, financial strength and shared
+          operational capability that allow our group companies to grow with confidence.
+        </p>
+        <p>
+          Our activities span distribution, trade counters, product development and consumer brands — all underpinned by
+          reliability, service and long-term partnerships with our customers and suppliers.
+        </p>
       </div>
     </section>
- 
-    <section aria-labelledby="brands">
-      <h2 id="brands">Our Brands</h2>
-      <p>Explore the businesses within the Gowling Group portfolio:</p>
-      <div class="brands-grid">
+
+    <!-- BRANDS -->
+    <section id="brands">
+      <div class="section-header animate delay-1">
+        <h2>Our Brands</h2>
+        <p>A growing portfolio of specialist flooring and interiors businesses.</p>
+      </div>
+
+      <div class="brands-grid animate delay-2">
+
         <article class="brand-card">
           <div>
             <div class="brand-title">DMS Flooring Supplies</div>
-            <p class="brand-desc">Trade counters, distribution and support services for flooring professionals.</p>
+            <p class="brand-desc">Trade counters, distribution and nationwide support for flooring professionals.</p>
           </div>
-          <a class="brand-link" href=https://dmstrade.com target="_blank" rel="noopener">Visit DMS Flooring Supplies →</a>
+          <a class="brand-link" href="https://dmstrade.com" target="_blank" rel="noopener">Visit website →</a>
         </article>
- 
+
         <article class="brand-card">
           <div>
             <div class="brand-title">Brampton Chase</div>
-            <p class="brand-desc">Premium, design-led LVT floors for retail showrooms and discerning homeowners.</p>
+            <p class="brand-desc">Premium design-led LVT flooring for retail showrooms and homeowners.</p>
           </div>
-          <a class="brand-link" href=https://bramptonchase.com target="_blank" rel="noopener">Visit Brampton Chase →</a>
+          <a class="brand-link" href="https://bramptonchase.com" target="_blank" rel="noopener">Visit website →</a>
         </article>
- 
+
         <article class="brand-card">
           <div>
             <div class="brand-title">Loom &amp; Weave</div>
-            <p class="brand-desc">Design-led, stylish and accessible carpets, LVT &amp; click flooring.</p>
+            <p class="brand-desc">Stylish, accessible carpets and LVT collections for modern retail environments.</p>
           </div>
-          <a class="brand-link" href="#" aria-disabled="true">Site coming soon</a>
+          <span class="brand-link" aria-disabled="true">Site coming soon</span>
         </article>
- 
+
         <article class="brand-card">
           <div>
             <div class="brand-title">SmartSurface</div>
-            <p class="brand-desc">Innovative wall cladding and acoustic panelling for trade and retail channels.</p>
+            <p class="brand-desc">Innovative wall cladding and acoustic solutions for trade and retail partners.</p>
           </div>
-          <a class="brand-link" href="#" aria-disabled="true">Site coming soon</a>
+          <span class="brand-link" aria-disabled="true">Site coming soon</span>
         </article>
- 
+
         <article class="brand-card">
           <div>
             <div class="brand-title">Tex-Tile</div>
-            <p class="brand-desc">Commercial carpet tile solutions for contractors and workplace projects.</p>
+            <p class="brand-desc">Commercial carpet tile solutions for contractors and workplace fit-outs.</p>
           </div>
-          <a class="brand-link" href="#" aria-disabled="true">Site coming soon</a>
+          <span class="brand-link" aria-disabled="true">Site coming soon</span>
         </article>
- 
+
         <article class="brand-card">
           <div>
             <div class="brand-title">Professional Flooring Accessories</div>
-            <p class="brand-desc">Underlays, grippers, profiles and essentials to support the flooring trade.</p>
+            <p class="brand-desc">Essential underlays, profiles and accessories supporting the flooring trade.</p>
           </div>
-          <a class="brand-link" href="#" aria-disabled="true">Site coming soon</a>
+          <span class="brand-link" aria-disabled="true">Site coming soon</span>
         </article>
+
       </div>
     </section>
- 
-    <section aria-labelledby="focus">
-      <h2 id="focus">What We Focus On</h2>
-      <div class="info-list">
+
+    <!-- FOCUS -->
+    <section id="focus">
+      <div class="section-header animate delay-1">
+        <h2>Our Strategic Focus</h2>
+        <p>Clear priorities to support sustainable growth across the group.</p>
+      </div>
+
+      <div class="info-list animate delay-2">
         <div class="info-item">
-          <strong>Brand growth</strong>
-          <p>We invest in people, stock and capability so each brand can scale confidently.</p>
+          <strong>Brand Development</strong>
+          <p>Investment, leadership and capability to help each brand grow sustainably and profitably.</p>
         </div>
         <div class="info-item">
-          <strong>Operational excellence</strong>
-          <p>Central warehousing, logistics and systems to support reliability.</p>
+          <strong>Operational Excellence</strong>
+          <p>Group-wide warehousing, logistics and systems designed to drive service and efficiency.</p>
         </div>
         <div class="info-item">
-          <strong>Customer commitment</strong>
-          <p>Trade partners, showrooms and distributors remain at the centre of what we do.</p>
+          <strong>Customer Commitment</strong>
+          <p>Supporting trade partners, showrooms and distributors with reliable products and service.</p>
         </div>
         <div class="info-item">
-          <strong>Long-term value</strong>
-          <p>We make decisions that build a sustainable, multi-brand group.</p>
+          <strong>Long-Term Value</strong>
+          <p>A strategy focused on multi-decade growth, resilience and strong stakeholder relationships.</p>
         </div>
       </div>
     </section>
- 
-    <section aria-labelledby="contact">
-      <h2 id="contact">Get in Touch</h2>
-      <div class="card">
-        <p>For trade, partnership or investment enquiries, please contact the group office.</p>
-        <p>📧 <a href=mailto:info@gowling.co.uk>info@gowling.co.uk</a><br />
-        🌐 <a href=https://www.gowling.co.uk target="_blank" rel="noopener">www.gowling.co.uk</a><br />
-        🏢 Gowling Group Ltd, Monarch Courtyard, Northampton, UK</p>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header animate delay-1">
+        <h2>Get in Touch</h2>
+        <p>For group, partnership or investment enquiries.</p>
+      </div>
+
+      <div class="card contact-details animate delay-2">
+
+        <p>
+          <span class="contact-label">Email</span>
+          <span><a href="mailto:info@gowling.co.uk">info@gowling.co.uk</a></span>
+        </p>
+
+        <p>
+          <span class="contact-label">Web</span>
+          <span><a href="https://www.gowling.co.uk" target="_blank" rel="noopener">www.gowling.co.uk</a></span>
+        </p>
+
+        <p>
+          <span class="contact-label">Office</span>
+          <span>
+            Gowling Group Ltd, Monarch Courtyard, Northampton, NN4 7BD, United Kingdom
+          </span>
+        </p>
+
       </div>
     </section>
- 
+
   </div>
 </main>
- 
+
 <footer>
-  <p>© Gowling Group Ltd - Registered in England &amp; Wales - Company No. 03338815</p>
+  © Gowling Group Ltd — Registered in England &amp; Wales — Company No. 03338815
 </footer>
+
 </body>
 </html>
