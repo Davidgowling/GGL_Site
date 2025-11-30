@@ -13,7 +13,7 @@
 
 <style>
 :root {
-  --bg:#f9f9fb;               /* CLEAN + FRESH */
+  --bg:#f9f9fb;
   --white:#ffffff;
   --primary:#1c2537;
   --accent:#a77a3d;
@@ -55,6 +55,13 @@ header {
   justify-content:space-between;
   gap:1.5rem;
   margin-bottom:2.25rem;
+}
+
+/* Top logo image */
+.header-logo-img {
+  width:160px;
+  height:auto;
+  margin-bottom:0.5rem;
 }
 
 /* Text Logo */
@@ -143,13 +150,7 @@ nav a:focus-visible::after {
   border-radius:999px;
   font-size:0.78rem;
   font-weight:600;
-  letter-spacing:.03em;
   text-transform:uppercase;
-}
-
-.hero-meta-secondary {
-  font-size:0.88rem;
-  color:var(--muted);
 }
 
 /* Main */
@@ -200,62 +201,23 @@ section {
   padding:1.3rem 1.4rem;
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
-  min-height:170px;
+  justify-content:flex-start;
+  min-height:210px;
 }
 
-.brand-title {
-  font-weight:600;
-  font-size:1rem;
-  color:var(--primary);
-}
-
-.brand-desc {
-  color:var(--muted);
-  font-size:0.88rem;
-  margin-top:0.4rem;
-}
-
-.brand-link {
-  margin-top:1.1rem;
-  font-size:0.8rem;
-  font-weight:600;
-  color:var(--accent);
-  text-decoration:none;
-}
-
-/* Focus section */
-.info-list {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:1.25rem;
-  margin-top:1.4rem;
-}
-
-.info-item {
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:0.5rem;
-  padding:1.35rem 1.45rem;
-}
-
-.info-item strong {
+/* ⭐ BRAND IMAGE SIZE — EDIT THIS ⭐ */
+.brand-img {
+  width:140px;          /* ← Change this to 160px, 180px, 220px etc */
+  margin-bottom:1rem;
+  border-radius:0.3rem;
   display:block;
-  font-size:1rem;
-  margin-bottom:0.4rem;
-  color:var(--primary);
 }
+/* ⭐ END BRAND IMAGE SIZE ⭐ */
 
-.info-item p {
-  margin:0;
-  color:var(--muted);
-  font-size:0.9rem;
-}
-
-/* Contact — PERFECT ALIGNMENT GRID FIX */
+/* Contact grid alignment */
 .contact-details p {
   display:grid;
-  grid-template-columns: 110px 1fr;  /* label width + flexible content */
+  grid-template-columns:110px 1fr;
   column-gap:1rem;
   margin:0 0 0.6rem;
 }
@@ -275,36 +237,15 @@ footer {
   border-top:1px solid #121723;
 }
 
-a { word-break:break-word; }
-
-/* Animations */
-@keyframes fade-in-up {
-  from { opacity:0; transform:translateY(10px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-
-.animate { opacity:0; animation:fade-in-up 0.6s ease-out forwards; }
-.animate.delay-1 { animation-delay:0.1s; }
-.animate.delay-2 { animation-delay:0.2s; }
-.animate.delay-3 { animation-delay:0.3s; }
-.animate.delay-4 { animation-delay:0.4s; }
-
-/* Motion reduction */
-@media (prefers-reduced-motion: reduce) {
-  * { animation:none !important; }
-  .animate { opacity:1 !important; }
-}
-
-/* Responsive */
 @media(max-width:768px) {
   .site-header-top { flex-direction:column; align-items:flex-start; }
   nav ul { flex-wrap:wrap; gap:1.1rem; }
-  .contact-details p { grid-template-columns: 90px 1fr; }
+  .contact-details p { grid-template-columns:90px 1fr; }
 }
 
 @media(max-width:480px) {
   .container { padding:0 1.2rem; }
-  .contact-details p { grid-template-columns: 80px 1fr; }
+  .contact-details p { grid-template-columns:80px 1fr; }
 }
 </style>
 </head>
@@ -314,10 +255,12 @@ a { word-break:break-word; }
 <header>
   <div class="container">
     <div class="site-header-top">
-      <div class="logo">
-        <span class="main">GOWLING</span>
-        <span class="sub">GROUP LTD</span>
-      </div>
+
+      <div>
+        <!-- TOP GOWLING LOGO IMAGE -->
+        <img src="/images/gowling_group_logo.png" alt="Gowling Group Logo" class="header-logo-img">
+
+      
 
       <nav aria-label="Primary navigation">
         <ul>
@@ -327,9 +270,8 @@ a { word-break:break-word; }
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-    </div>
 
-    <div class="hero animate">
+    <div class="hero">
       <h1>Building the UK's Leading Flooring & Interiors Brands</h1>
       <p class="hero-subtitle">
         Gowling Group Ltd is the parent organisation behind a portfolio of specialist flooring and interiors businesses,
@@ -348,77 +290,63 @@ a { word-break:break-word; }
 
     <!-- ABOUT -->
     <section id="about">
-      <div class="section-header animate delay-1">
+      <div class="section-header">
         <h2>About Gowling Group</h2>
         <p>Strategic investment and management for flooring &amp; interiors brands.</p>
       </div>
-      <div class="card animate delay-2">
+
+      <div class="card">
         <p>
-          Gowling Group Ltd is an investment and management business dedicated to building strong, sustainable brands
-          within the flooring and interiors sector. We provide strategic direction, financial strength and shared
-          operational capability that allow our group companies to grow with confidence.
+          Gowling Group Ltd is an investment and management business dedicated to building strong, sustainable brands.
         </p>
         <p>
-          Our activities span distribution, trade counters, product development and consumer brands — all underpinned by
-          reliability, service and long-term partnerships with our customers and suppliers.
+          Our activities span distribution, trade counters, product development and consumer brands — all built on long-term partnerships.
         </p>
       </div>
     </section>
 
     <!-- BRANDS -->
     <section id="brands">
-      <div class="section-header animate delay-1">
+      <div class="section-header">
         <h2>Our Brands</h2>
         <p>A growing portfolio of specialist flooring and interiors businesses.</p>
       </div>
 
-      <div class="brands-grid animate delay-2">
+      <div class="brands-grid">
 
         <article class="brand-card">
-          <div>
-            <div class="brand-title">DMS Flooring Supplies</div>
-            <p class="brand-desc">Trade counters, distribution and nationwide support for flooring professionals.</p>
-          </div>
+          <img src="/images/brand-dms.png" alt="DMS Flooring Supplies" class="brand-img">
+          <p class="brand-desc">Trade counters, distribution and nationwide support for flooring professionals.</p>
           <a class="brand-link" href="https://dmstrade.com" target="_blank" rel="noopener">Visit website →</a>
         </article>
 
         <article class="brand-card">
-          <div>
-            <div class="brand-title">Brampton Chase</div>
-            <p class="brand-desc">Premium design-led LVT flooring for retail showrooms and homeowners.</p>
-          </div>
+          <img src="/images/brand-bc.png" alt="Brampton Chase" class="brand-img">
+          <p class="brand-desc">Premium design-led LVT flooring for retail showrooms and homeowners.</p>
           <a class="brand-link" href="https://bramptonchase.com" target="_blank" rel="noopener">Visit website →</a>
         </article>
 
         <article class="brand-card">
-          <div>
-            <div class="brand-title">Loom &amp; Weave</div>
-            <p class="brand-desc">Stylish, accessible carpets and LVT collections for modern retail environments.</p>
-          </div>
+          <img src="/images/brand_lw.png" alt="Loom & Weave" class="brand-img">
+          <p class="brand-desc">Stylish, accessible carpets and LVT collections for modern retail environments.</p>
           <span class="brand-link" aria-disabled="true">Site coming soon</span>
         </article>
 
         <article class="brand-card">
-          <div>
-            <div class="brand-title">SmartSurface</div>
-            <p class="brand-desc">Innovative wall cladding and acoustic solutions for trade and retail partners.</p>
-          </div>
+          <img src="/images/smartsurface.png" alt="SmartSurface" class="brand-img">
+          <p class="brand-desc">Innovative wall cladding and acoustic solutions for trade and retail partners.</p>
           <span class="brand-link" aria-disabled="true">Site coming soon</span>
         </article>
 
         <article class="brand-card">
-          <div>
-            <div class="brand-title">Tex-Tile</div>
-            <p class="brand-desc">Commercial carpet tile solutions for contractors and workplace fit-outs.</p>
-          </div>
+          <img src="/images/brand-textile.png" alt="Tex-Tile" class="brand-img">
+          <p class="brand-desc">Commercial carpet tile solutions for contractors and workplace fit-outs.</p>
           <span class="brand-link" aria-disabled="true">Site coming soon</span>
         </article>
 
         <article class="brand-card">
-          <div>
-            <div class="brand-title">Professional Flooring Accessories</div>
-            <p class="brand-desc">Essential underlays, profiles and accessories supporting the flooring trade.</p>
-          </div>
+          <img src="/images/brand_pfa.png" alt="Professional Flooring Accessories" class="brand-img">
+          <p class="brand-desc">Essential underlays, profiles and accessories supporting the flooring trade.</p>
           <span class="brand-link" aria-disabled="true">Site coming soon</span>
         </article>
 
@@ -427,40 +355,39 @@ a { word-break:break-word; }
 
     <!-- FOCUS -->
     <section id="focus">
-      <div class="section-header animate delay-1">
+      <div class="section-header">
         <h2>Our Strategic Focus</h2>
         <p>Clear priorities to support sustainable growth across the group.</p>
       </div>
 
-      <div class="info-list animate delay-2">
+      <div class="info-list">
         <div class="info-item">
           <strong>Brand Development</strong>
-          <p>Investment, leadership and capability to help each brand grow sustainably and profitably.</p>
+          <p>Investment and leadership for sustainable growth.</p>
         </div>
         <div class="info-item">
           <strong>Operational Excellence</strong>
-          <p>Group-wide warehousing, logistics and systems designed to drive service and efficiency.</p>
+          <p>Group-wide warehousing, logistics and systems built for efficiency.</p>
         </div>
         <div class="info-item">
           <strong>Customer Commitment</strong>
-          <p>Supporting trade partners, showrooms and distributors with reliable products and service.</p>
+          <p>Supporting trade partners, showrooms and distributors with reliability.</p>
         </div>
         <div class="info-item">
           <strong>Long-Term Value</strong>
-          <p>A strategy focused on multi-decade growth, resilience and strong stakeholder relationships.</p>
+          <p>A strategy built on long-term resilience and strong relationships.</p>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <div class="section-header animate delay-1">
+      <div class="section-header">
         <h2>Get in Touch</h2>
         <p>For group, partnership or investment enquiries.</p>
       </div>
 
-      <div class="card contact-details animate delay-2">
-
+      <div class="card contact-details">
         <p>
           <span class="contact-label">Email</span>
           <span><a href="mailto:sales@gowling.co.uk">sales@gowling.co.uk</a></span>
@@ -473,11 +400,8 @@ a { word-break:break-word; }
 
         <p>
           <span class="contact-label">Office</span>
-          <span>
-            Gowling Group Ltd, 8 - 10 Monarch Courtyard, Northampton, NN4 7BD, United Kingdom
-          </span>
+          <span>Gowling Group Ltd, 8 - 10 Monarch Courtyard, Northampton, NN4 7BD, United Kingdom</span>
         </p>
-
       </div>
     </section>
 
