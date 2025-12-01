@@ -398,15 +398,18 @@ footer {
   © Gowling Group Ltd — Registered in England &amp; Wales — Company No. 03338815
 </footer>
 
-<!-- FORCE MOBILE TO LOAD AT TOP -->
 <script>
-  window.addEventListener("load", function () {
-    window.scrollTo(0, 0);
-  });
+  // Stop browser restoring old scroll position
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
 
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  };
+  // Always force the page to start at the top
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      window.scrollTo(0, 0);
+    }, 0);
+  });
 </script>
 
 </body>
