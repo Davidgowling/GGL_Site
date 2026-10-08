@@ -1,415 +1,413 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gowling Group Ltd | Flooring & Interiors Group</title>
-<meta name="description" content="Gowling Group Ltd is a UK based investment and management company supporting a family of flooring and interiors brands, including distribution, trade counters and design-led LVT.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gowling Group Ltd | Flooring businesses in Northampton</title>
+<meta name="description" content="Gowling Group Ltd is an independently owned flooring group in Northampton, behind DMS Flooring Supplies, Brampton Chase and Loom &amp; Weave.">
+<meta property="og:title" content="Gowling Group Ltd">
+<meta property="og:description" content="The group behind DMS Flooring Supplies, Brampton Chase and Loom &amp; Weave.">
+<meta property="og:image" content="https://www.gowling.co.uk/images/gowling_group_logo.png">
+<link rel="icon" href="images/gowling_group_logo.png">
 
-<!-- Typography -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
 <style>
+/* Layout: left-aligned single column on a 1160px measure; hero splits text left / herringbone diamond right; businesses grouped by what they do, not one grid of identical cards. */
 :root {
-  --bg:#f9f9fb;
-  --white:#ffffff;
-  --primary:#1c2537;
-  --accent:#a77a3d;
-  --text:#1b1b1b;
-  --muted:#6b7380;
-  --line:#e5e7eb;
-  --max:1200px;
+  --stone: #eef1f3;      /* page ground, cool grey with a navy bias */
+  --board: #ffffff;      /* sample-board white, used for logo plates */
+  --navy: #06263b;       /* taken from the Gowling G mark */
+  --ink: #1a2731;        /* running text */
+  --muted: #586773;      /* secondary text */
+  --oak: #9a6a33;        /* accent, links and the plank tones */
+  --line: #d3dae0;
+  --oak-1: #b98b55; --oak-2: #a87943; --oak-3: #c79d6a; --oak-4: #94672f; --grain: rgba(60,35,10,.16);
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --measure: 1160px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --stone: #0d1820; --board: #f4f6f7; --navy: #e4ebf0; --ink: #d3dce2; --muted: #93a3ae;
+    --oak: #d4a56d; --line: #24374a;
+    --oak-1: #8a6438; --oak-2: #7a5630; --oak-3: #997044; --oak-4: #6b4a28; --grain: rgba(0,0,0,.22);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --stone: #0d1820; --board: #f4f6f7; --navy: #e4ebf0; --ink: #d3dce2; --muted: #93a3ae;
+  --oak: #d4a56d; --line: #24374a;
+  --oak-1: #8a6438; --oak-2: #7a5630; --oak-3: #997044; --oak-4: #6b4a28; --grain: rgba(0,0,0,.22);
+  color-scheme: dark;
 }
 
-/* Base */
-* { box-sizing:border-box; }
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
-  margin:0;
-  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
+  margin: 0;
+  background: var(--stone);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
 }
+.wrap { width: 100%; max-width: var(--measure); margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); }
+a { color: var(--oak); text-underline-offset: .2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--oak); outline-offset: 3px; border-radius: 2px; }
 
-/* Layout */
-.container {
-  width:min(100%,var(--max));
-  margin:0 auto;
-  padding:0 1.5rem;
-}
+h1, h2, h3 { color: var(--navy); margin: 0; text-wrap: balance; font-weight: 700; }
+h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); line-height: 1.1; font-variation-settings: "wdth" 118; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; line-height: 1.25; font-variation-settings: "wdth" 110; }
+p { margin: 0; }
 
 /* Header */
-header {
-  background:
-    radial-gradient(circle at 0% -25%, rgba(255,255,255,1) 0%, rgba(250,250,252,1) 40%, rgba(245,246,250,1) 75%);
-  border-bottom:1px solid var(--line);
-  padding:1.5rem 0 1.5rem;
-}
-
-.site-header-top {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 1rem;
-  margin-bottom:1rem;
-}
-
-/* Logo */
-.header-logo-img {
-  width:280px;
-  height:auto;
-}
-
-/* Navigation */
-nav ul {
-  list-style:none;
-  display:flex;
-  gap:1.75rem;
-  margin:0;
-  padding:0;
-}
-
-nav a {
-  font-size:0.9rem;
-  font-weight:500;
-  text-decoration:none;
-  color:var(--muted);
-  position:relative;
-  padding-bottom:0.2rem;
-}
-
-nav a::after {
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:0;
-  height:2px;
-  background:var(--accent);
-  transition:width 0.18s ease-out;
-}
-
-nav a:hover::after,
-nav a:focus-visible::after {
-  width:100%;
-}
+.top { padding-block: 22px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.logo { display: block; width: 190px; height: auto; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo { filter: brightness(0) invert(.92); } }
+:root[data-theme="dark"] .logo { filter: brightness(0) invert(.92); }
+.nav { display: flex; gap: clamp(16px, 3vw, 32px); list-style: none; margin: 0; padding: 0; }
+.nav a { color: var(--ink); text-decoration: none; font-size: .95rem; font-weight: 500; padding-block: 6px; }
+.nav a:hover { color: var(--oak); }
 
 /* Hero */
-.hero {
-  max-width:740px;
-}
-
+.hero { padding-block: clamp(28px, 6vw, 72px) clamp(48px, 8vw, 104px); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 .hero h1 {
-  font-size:clamp(2.1rem,3.8vw,2.7rem);
-  margin:0 0 1rem;
-  font-weight:700;
-  color:var(--primary);
+  font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  font-weight: 750;
+  font-variation-settings: "wdth" 122;
 }
-
-.hero-subtitle {
-  margin:0 0 1.75rem;
-  color:var(--muted);
-  font-size:1rem;
+.hero .lede { margin-top: 26px; max-width: 34em; font-size: 1.15rem; color: var(--ink); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.btn {
+  display: inline-block; padding: 13px 22px; font-weight: 600; font-size: .98rem; text-decoration: none;
+  border: 1.5px solid var(--navy); color: var(--navy); border-radius: 2px;
 }
+.btn.solid { background: var(--navy); color: var(--stone); }
+.btn:hover { text-decoration: none; background: var(--oak); border-color: var(--oak); color: #fff; }
+.floor { position: relative; width: 100%; max-width: 460px; aspect-ratio: 1; justify-self: end; }
+.floor canvas { width: 100%; height: 100%; display: block; }
 
-.hero-meta {
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.75rem 1.1rem;
-  align-items:center;
+/* Sections */
+section.block { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--line); }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; margin-bottom: clamp(32px, 5vw, 56px); }
+.head p { color: var(--muted); max-width: 32em; }
+
+.group + .group { margin-top: clamp(40px, 6vw, 64px); }
+.group-name { font-size: .95rem; font-weight: 600; color: var(--muted); margin: 0 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+
+/* Logo plates: white sample boards with a strip in the brand's own colour */
+.plate {
+  background: var(--board); border-left: 6px solid var(--swatch, var(--oak));
+  display: flex; align-items: center; justify-content: center;
+  padding: 28px 32px; min-height: 150px;
 }
+.plate img { max-height: 64px; width: auto; max-width: 100%; object-fit: contain; }
 
-.tag {
-  background:rgba(167,122,61,0.14);
-  color:var(--accent);
-  padding:0.28rem 0.7rem;
-  border-radius:999px;
-  font-size:0.78rem;
-  font-weight:600;
-  text-transform:uppercase;
+.feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.feature .plate { min-height: 220px; }
+.feature .plate img { max-height: 76px; }
+.copy { display: grid; gap: 14px; align-content: start; }
+.copy p { max-width: 36em; }
+.branches { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; padding: 0; list-style: none; }
+.branches li { border: 1px solid var(--line); padding: 5px 12px; font-size: .92rem; border-radius: 2px; }
+.small-label { font-size: .9rem; color: var(--muted); }
+
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 48px); }
+.brand { display: grid; gap: 18px; align-content: start; }
+.brand .plate { min-height: 180px; }
+
+.dev { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.dev .plate { min-height: 110px; padding: 20px 24px; }
+.dev .plate img { max-height: 46px; }
+.dev .brand { gap: 12px; }
+.dev .brand p { color: var(--muted); font-size: .98rem; }
+.soon { font-size: .88rem; color: var(--muted); font-style: italic; }
+
+/* Approach */
+.principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 64px; margin: 0; }
+.principles div { display: grid; gap: 8px; }
+.principles dt { font-weight: 700; color: var(--navy); font-size: 1.12rem; font-variation-settings: "wdth" 110; }
+.principles dd { margin: 0; max-width: 32em; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 64px; }
+.contact dl { margin: 0; display: grid; gap: 22px; }
+.contact dt { font-size: .9rem; color: var(--muted); margin-bottom: 2px; }
+.contact dd { margin: 0; font-size: 1.1rem; }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.email { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--navy); text-decoration: none; font-variation-settings: "wdth" 115; overflow-wrap: anywhere; }
+.email:hover { color: var(--oak); }
+.copy-btn { font: inherit; font-size: .88rem; padding: 6px 12px; background: none; border: 1px solid var(--line); color: var(--ink); cursor: pointer; border-radius: 2px; }
+.copy-btn:hover { border-color: var(--oak); color: var(--oak); }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: .9rem; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px 32px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .floor { max-width: 340px; justify-self: start; order: -1; }
+  .head, .feature, .contact { grid-template-columns: 1fr; }
+  .dev { grid-template-columns: 1fr; }
+  .principles { grid-template-columns: 1fr; }
 }
-
-/* Main */
-main {
-  padding:3rem 0 4rem;
-}
-
-section {
-  margin-bottom:3.75rem;
-}
-
-.section-header {
-  margin-bottom:1.4rem;
-}
-
-.section-header h2 {
-  font-size:1.45rem;
-  font-weight:700;
-  color:var(--primary);
-  margin:0 0 0.35rem;
-}
-
-.section-header p {
-  margin:0;
-  font-size:0.95rem;
-  color:var(--muted);
-}
-
-/* Card */
-.card {
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:0.6rem;
-  padding:1.75rem 1.8rem;
-}
-
-/* Brands Grid */
-.brands-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:1.25rem;
-  margin-top:1.25rem;
-}
-
-.brand-card {
-  background:var(--white);
-  border:1px solid var(--line);
-  border-radius:0.5rem;
-  padding:1.3rem 1.4rem;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  min-height:230px;
-}
-
-.brand-img {
-  width:200px;
-  margin-bottom:1rem;
-  display:block;
-}
-
-.brand-card .brand-desc {
-  flex:1;
-  margin-bottom:1rem;
-}
-
-.brand-link,
-.brand-card span[aria-disabled] {
-  margin-top:auto;
-  display:block;
-  font-weight:600;
-  color:var(--primary);
-}
-
-/* Contact Grid */
-.contact-details p {
-  display:grid;
-  grid-template-columns:110px 1fr;
-  column-gap:1rem;
-  margin:0 0 0.6rem;
-}
-
-.contact-label {
-  font-weight:600;
-  color:var(--primary);
-}
-
-/* Footer */
-footer {
-  background:#1c2537;
-  color:#d4d7de;
-  text-align:center;
-  padding:2rem 1.5rem;
-  font-size:0.82rem;
-  border-top:1px solid #121723;
-}
-
-@media(max-width:768px) {
-  .site-header-top { flex-direction:column; align-items:flex-start; }
-  nav ul { flex-wrap:wrap; gap:1.1rem; }
-  .contact-details p { grid-template-columns:90px 1fr; }
-}
-
-@media(max-width:480px) {
-  .container { padding:0 1.2rem; }
-  .contact-details p { grid-template-columns:80px 1fr; }
+@media (max-width: 620px) {
+  .pair { grid-template-columns: 1fr; }
+  .nav { gap: 18px; }
+  .floor { max-width: 240px; }
 }
 </style>
 </head>
-
 <body>
 
-<header>
-  <div class="container">
-    <div class="site-header-top">
-      <img src="images/gowling_group_logo.png" alt="Gowling Group Logo" class="header-logo-img">
 
-      <nav aria-label="Primary navigation">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#brands">Brands</a></li>
-          <li><a href="#focus">Our Focus</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="hero">
-      <h1>Building the UK's Leading Flooring & Interiors Brands</h1>
-      <p class="hero-subtitle">
-        Gowling Group Ltd is the parent organisation behind a portfolio of specialist flooring and interiors businesses,
-        supporting trade professionals, showrooms and distributors across the UK.
-      </p>
-      <div class="hero-meta">
-        <span class="tag">Group HQ — Northampton, UK</span>
-        <span class="hero-meta-secondary">Independent · Brand-led · Customer-focused</span>
-      </div>
-    </div>
+<header class="top">
+  <div class="wrap">
+    <a href="#top" aria-label="Gowling Group home"><img class="logo" src="images/gowling_group_logo.png" alt="Gowling Group Ltd"></a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="#businesses">Businesses</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<main>
-  <div class="container">
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-header">
-        <h2>About Gowling Group</h2>
-        <p>Strategic investment and management for flooring &amp; interiors brands.</p>
-      </div>
-
-      <div class="card">
-        <p>
-          Gowling Group Ltd is an investment and management business dedicated to building strong, sustainable brands.
-        </p>
-        <p>
-          Our activities span distribution, trade counters, product development and consumer brands — all built on long-term partnerships.
-        </p>
-      </div>
-    </section>
-
-    <!-- BRANDS -->
-    <section id="brands">
-      <div class="section-header">
-        <h2>Our Brands</h2>
-        <p>A growing portfolio of specialist flooring and interiors businesses.</p>
-      </div>
-
-      <div class="brands-grid">
-
-        <article class="brand-card">
-          <img src="images/brand-dms.png" alt="DMS Flooring Supplies" class="brand-img">
-          <p class="brand-desc">Trade counters, distribution and nationwide support for flooring professionals.</p>
-          <a class="brand-link" href="https://dmstrade.com" target="_blank" rel="noopener">Visit website →</a>
-        </article>
-
-        <article class="brand-card">
-          <img src="images/brand-bc.png" alt="Brampton Chase" class="brand-img">
-          <p class="brand-desc">Premium design-led LVT flooring for retail showrooms and homeowners.</p>
-          <a class="brand-link" href="https://bramptonchase.com" target="_blank" rel="noopener">Visit website →</a>
-        </article>
-
-        <article class="brand-card">
-          <img src="images/brand_lw.png" alt="Loom & Weave" class="brand-img">
-          <p class="brand-desc">Stylish, accessible carpets and LVT collections for modern retail environments.</p>
-          <a class="brand-link" href="https://www.loom-weave.co.uk" target="_blank" rel="noopener">Visit website →</a>
-        </article>
-
-        <article class="brand-card">
-          <img src="images/smartsurface.png" alt="SmartSurface" class="brand-img">
-          <p class="brand-desc">Innovative wall cladding and acoustic solutions for trade and retail partners.</p>
-          <span class="brand-link" aria-disabled="true">Site coming soon</span>
-        </article>
-
-        <article class="brand-card">
-          <img src="images/brand-textile.png" alt="Tex-Tile" class="brand-img">
-          <p class="brand-desc">Commercial carpet tile solutions for contractors and workplace fit-outs.</p>
-          <span class="brand-link" aria-disabled="true">Site coming soon</span>
-        </article>
-
-        <article class="brand-card">
-          <img src="images/brand_pfa.png" alt="Professional Flooring Accessories" class="brand-img">
-          <p class="brand-desc">Essential underlays, profiles and accessories supporting the flooring trade.</p>
-          <span class="brand-link" aria-disabled="true">Site coming soon</span>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- FOCUS -->
-    <section id="focus">
-      <div class="section-header">
-        <h2>Our Strategic Focus</h2>
-        <p>Clear priorities to support sustainable growth across the group.</p>
-      </div>
-
-      <div class="info-list">
-        <div class="info-item">
-          <strong>Brand Development</strong>
-          <p>Investment and leadership for sustainable growth.</p>
-        </div>
-        <div class="info-item">
-          <strong>Operational Excellence</strong>
-          <p>Group-wide warehousing, logistics and systems built for efficiency.</p>
-        </div>
-        <div class="info-item">
-          <strong>Customer Commitment</strong>
-          <p>Supporting trade partners, showrooms and distributors with reliability.</p>
-        </div>
-        <div class="info-item">
-          <strong>Long-Term Value</strong>
-          <p>A strategy built on long-term resilience and strong relationships.</p>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>The group behind DMS, Brampton Chase and Loom &amp; Weave.</h1>
+        <p class="lede">Gowling Group is an independently owned flooring business based in Northampton. We own and run specialist companies across trade distribution, trade counters and our own ranges of LVT and carpet.</p>
+        <div class="actions">
+          <a class="btn solid" href="#businesses">See our businesses</a>
+          <a class="btn" href="#contact">Contact the group</a>
         </div>
       </div>
-    </section>
+      <div class="floor" aria-hidden="true"><canvas id="floor"></canvas></div>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-header">
-        <h2>Get in Touch</h2>
-        <p>For group, partnership or investment enquiries.</p>
+  <section class="block" id="businesses">
+    <div class="wrap">
+      <div class="head">
+        <h2>Our businesses</h2>
+        <p>Each business has its own team, customers and identity. The group provides the investment, systems and warehousing behind them.</p>
       </div>
 
-      <div class="card contact-details">
-        <p>
-          <span class="contact-label">Email</span>
-          <span><a href="mailto:sales@gowling.co.uk">sales@gowling.co.uk</a></span>
-        </p>
-
-        <p>
-          <span class="contact-label">Web</span>
-          <span><a href="https://www.gowling.co.uk" target="_blank" rel="noopener">www.gowling.co.uk</a></span>
-        </p>
-
-        <p>
-          <span class="contact-label">Office</span>
-          <span>Gowling Group Ltd, 8 - 11 Monarch Courtyard, Northampton, NN4 7BD, United Kingdom</span>
-        </p>
+      <div class="group">
+        <p class="group-name">Distribution and trade counters</p>
+        <article class="feature">
+          <div class="plate" style="--swatch:#b8c726"><img src="images/brand-dms.png" alt="DMS Flooring Supplies"></div>
+          <div class="copy">
+            <h3>DMS Flooring Supplies</h3>
+            <p>Flooring distribution for fitters, contractors and retailers, with deliveries from our Northampton warehouse and four trade counters where the trade can collect stock.</p>
+            <p class="small-label">Trade counters</p>
+            <ul class="branches">
+              <li>Northampton</li><li>Milton Keynes</li><li>Hemel Hempstead</li><li>Colindale</li>
+            </ul>
+            <p><a href="https://dmstrade.com" target="_blank" rel="noopener">Visit dmstrade.com</a></p>
+          </div>
+        </article>
       </div>
-    </section>
 
-  </div>
+      <div class="group">
+        <p class="group-name">Our own brands</p>
+        <div class="pair">
+          <article class="brand">
+            <div class="plate" style="--swatch:#b09a5d"><img src="images/brand-bc.png" alt="Brampton Chase"></div>
+            <h3>Brampton Chase</h3>
+            <p>Premium, design-led LVT sold through independent flooring retailers and showrooms.</p>
+            <p><a href="https://bramptonchase.com" target="_blank" rel="noopener">Visit bramptonchase.com</a></p>
+          </article>
+          <article class="brand">
+            <div class="plate" style="--swatch:#6e4a1f"><img src="images/brand_lw.png" alt="Loom &amp; Weave"></div>
+            <h3>Loom &amp; Weave</h3>
+            <p>Stylish carpet and LVT collections for retailers, at a more accessible price point than Brampton Chase.</p>
+            <p><a href="https://www.loom-weave.co.uk" target="_blank" rel="noopener">Visit loom-weave.co.uk</a></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="group">
+        <p class="group-name">In development</p>
+        <div class="dev">
+          <article class="brand">
+            <div class="plate" style="--swatch:#b3ae9b"><img src="images/smartsurface-web.png" alt="SmartSurface"></div>
+            <h3>SmartSurface</h3>
+            <p>Wall cladding and acoustic panels for trade and retail partners.</p>
+            <p class="soon">Website coming soon</p>
+          </article>
+          <article class="brand">
+            <div class="plate" style="--swatch:#4f3f6b"><img src="images/brand-textile.png" alt="Tex-tile carpet tiles"></div>
+            <h3>Tex-tile</h3>
+            <p>Commercial carpet tiles for contractors and workplace fit-outs.</p>
+            <p class="soon">Website coming soon</p>
+          </article>
+          <article class="brand">
+            <div class="plate" style="--swatch:#f2cf2f"><img src="images/brand_pfa.png" alt="Professional Flooring Accessories"></div>
+            <h3>Professional Flooring Accessories</h3>
+            <p>Underlays, profiles and accessories for the flooring trade.</p>
+            <p class="soon">Website coming soon</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="approach">
+    <div class="wrap">
+      <div class="head">
+        <h2>How we run the group</h2>
+        <p>We are owner-managed, so decisions are made quickly and for the long term rather than the next quarter.</p>
+      </div>
+      <dl class="principles">
+        <div><dt>Brands with their own identity</dt><dd>Our businesses serve different customers, so each keeps its own name, team and way of trading.</dd></div>
+        <div><dt>Shared operations</dt><dd>Warehousing, logistics, systems and finance are run centrally, so every business gets the benefit of the group's scale.</dd></div>
+        <div><dt>Long relationships</dt><dd>We work with the same manufacturers, retailers and fitters year after year, and we look after those relationships.</dd></div>
+        <div><dt>Investment for the long term</dt><dd>We reinvest in stock, people and new brands, and we are open to acquiring businesses that fit the group.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap contact">
+      <div>
+        <h2>Get in touch</h2>
+        <p style="margin-top:16px;max-width:30em;color:var(--muted)">For partnership, supply or investment enquiries, email the group office. For orders and product questions, please contact the relevant business directly.</p>
+      </div>
+      <dl>
+        <div>
+          <dt>Email</dt>
+          <dd class="email-row"><a class="email" href="mailto:sales@gowling.co.uk">sales@gowling.co.uk</a><button class="copy-btn" id="copy-email" type="button">Copy</button></dd>
+        </div>
+        <div>
+          <dt>Office</dt>
+          <dd>Gowling Group Ltd<br>8 to 11 Monarch Courtyard<br>Northampton NN4 7BD</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
 </main>
 
 <footer>
-  © Gowling Group Ltd — Registered in England &amp; Wales — Company No. 03338815
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Gowling Group Ltd</span>
+    <span>Registered in England and Wales, company no. 03338815</span>
+  </div>
 </footer>
 
 <script>
-  // Stop browser restoring old scroll position
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
+(function () {
+  // Copy email
+  var btn = document.getElementById('copy-email');
+  btn.addEventListener('click', function () {
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('sales@gowling.co.uk').then(done, function () { selectEmail(); });
+    } else { selectEmail(); }
+  });
+  function selectEmail() {
+    var r = document.createRange(); r.selectNodeContents(document.querySelector('.email'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Herringbone floor, clipped to the diamond of the G mark, laid plank by plank on load
+  var cv = document.getElementById('floor');
+  var ctx = cv.getContext('2d');
+  var planks = [], start = null, size = 0;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function rand(seed) { var x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
+
+  function build() {
+    planks = [];
+    var W = size / 15, L = W * 4;
+    // Pattern built in a rotated frame: staircase of horizontal + vertical planks.
+    var n = 0, R = size * 1.8;
+    for (var j = -20; j <= 20; j++) {
+      for (var k = -60; k <= 60; k++) {
+        var ox = k * W - j * L, oy = k * W + j * L;
+        if (Math.abs(ox) > R || Math.abs(oy) > R) continue;
+        planks.push({ x: ox, y: oy, w: L, h: W, s: n++ });
+        planks.push({ x: ox, y: oy + W, w: W, h: L, s: n++ });
+      }
+    }
   }
 
-  // Always force the page to start at the top
-  window.addEventListener("load", function () {
-    setTimeout(function () {
-      window.scrollTo(0, 0);
-    }, 0);
-  });
+  function tok(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+  function draw(t) {
+    var dpr = window.devicePixelRatio || 1, c = size / 2;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, size, size);
+    var tones = [tok('--oak-1'), tok('--oak-2'), tok('--oak-3'), tok('--oak-4')];
+    var grain = tok('--grain');
+    ctx.save();
+    // diamond clip
+    ctx.beginPath();
+    ctx.moveTo(c, 2); ctx.lineTo(size - 2, c); ctx.lineTo(c, size - 2); ctx.lineTo(2, c); ctx.closePath();
+    ctx.clip();
+    ctx.translate(c, c);
+    ctx.rotate(Math.PI / 4);
+    for (var i = 0; i < planks.length; i++) {
+      var p = planks[i];
+      // lay from the bottom point of the diamond upwards
+      var cy = (p.x + p.w / 2 + p.y + p.h / 2) / Math.SQRT2; // screen-space vertical position
+      var delay = ((size / 2 - cy) / size) * 1100;
+      var a = reduce ? 1 : Math.min(1, Math.max(0, (t - delay) / 260));
+      if (a <= 0) continue;
+      var drop = (1 - a) * 6;
+      ctx.globalAlpha = a;
+      ctx.fillStyle = tones[Math.floor(rand(p.s) * tones.length)];
+      ctx.fillRect(p.x - drop, p.y - drop, p.w - 1, p.h - 1);
+      ctx.strokeStyle = grain; ctx.lineWidth = .7;
+      var lines = 2 + Math.floor(rand(p.s + 7) * 2);
+      ctx.beginPath();
+      for (var g = 1; g <= lines; g++) {
+        var f = g / (lines + 1) + (rand(p.s + g) - .5) * .12;
+        if (p.w > p.h) { ctx.moveTo(p.x - drop + 3, p.y - drop + p.h * f); ctx.lineTo(p.x - drop + p.w - 4, p.y - drop + p.h * f); }
+        else { ctx.moveTo(p.x - drop + p.w * f, p.y - drop + 3); ctx.lineTo(p.x - drop + p.w * f, p.y - drop + p.h - 4); }
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+    ctx.globalAlpha = 1;
+  }
+
+  function resize() {
+    var r = cv.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+    size = Math.max(1, Math.round(r.width));
+    cv.width = size * dpr; cv.height = size * dpr;
+    build();
+    draw(1e6);
+  }
+
+  function frame(now) {
+    if (start === null) start = now;
+    var t = now - start;
+    draw(t);
+    if (t < 1500) requestAnimationFrame(frame);
+  }
+
+  resize();
+  if (!reduce) { start = null; requestAnimationFrame(frame); }
+  window.addEventListener('resize', resize);
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  if (mq.addEventListener) mq.addEventListener('change', function () { draw(1e6); });
+  new MutationObserver(function () { draw(1e6); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+})();
 </script>
 
 </body>
