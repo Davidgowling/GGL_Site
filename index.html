@@ -14,32 +14,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
 <style>
-/* Layout: left-aligned single column on a 1160px measure; hero splits text left / herringbone diamond right; businesses grouped by what they do, not one grid of identical cards. */
+/* Layout: left-aligned single column on a 1160px measure; hero headline then a full-width herringbone photo; businesses grouped by what they do, not one grid of identical cards. */
 :root {
-  --stone: #eef1f3;      /* page ground, cool grey with a navy bias */
-  --board: #ffffff;      /* sample-board white, used for logo plates */
+  --stone: #ffffff;      /* page ground */
+  --board: #f5eee3;      /* warm sample-board tone for logo plates, taken from the oak photo */
+  --band: #06263b;       /* navy band behind "How we run the group" and the footer */
+  --band-fg: #e8edf1;
+  --band-muted: #a9b8c3;
   --navy: #06263b;       /* taken from the Gowling G mark */
   --ink: #1a2731;        /* running text */
-  --muted: #586773;      /* secondary text */
+  --muted: #5e6670;      /* secondary text */
   --oak: #9a6a33;        /* accent, links and the plank tones */
-  --line: #d3dae0;
-  --oak-1: #b98b55; --oak-2: #a87943; --oak-3: #c79d6a; --oak-4: #94672f; --grain: rgba(60,35,10,.16);
+  --line: #e2ddd5;
   --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --measure: 1160px;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --stone: #0d1820; --board: #f4f6f7; --navy: #e4ebf0; --ink: #d3dce2; --muted: #93a3ae;
-    --oak: #d4a56d; --line: #24374a;
-    --oak-1: #8a6438; --oak-2: #7a5630; --oak-3: #997044; --oak-4: #6b4a28; --grain: rgba(0,0,0,.22);
+    --stone: #0d1820; --board: #efe7da; --navy: #e4ebf0; --ink: #d3dce2; --muted: #93a3ae;
+    --oak: #d4a56d; --line: #24374a; --band: #13344d; --band-fg: #e8edf1; --band-muted: #a9b8c3;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --stone: #0d1820; --board: #f4f6f7; --navy: #e4ebf0; --ink: #d3dce2; --muted: #93a3ae;
-  --oak: #d4a56d; --line: #24374a;
-  --oak-1: #8a6438; --oak-2: #7a5630; --oak-3: #997044; --oak-4: #6b4a28; --grain: rgba(0,0,0,.22);
+  --stone: #0d1820; --board: #efe7da; --navy: #e4ebf0; --ink: #d3dce2; --muted: #93a3ae;
+  --oak: #d4a56d; --line: #24374a; --band: #13344d; --band-fg: #e8edf1; --band-muted: #a9b8c3;
   color-scheme: dark;
 }
 
@@ -77,25 +77,26 @@ p { margin: 0; }
 .nav a:hover { color: var(--oak); }
 
 /* Hero */
-.hero { padding-block: clamp(28px, 6vw, 72px) clamp(48px, 8vw, 104px); }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero { padding-block: clamp(28px, 5vw, 64px) 0; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px clamp(32px, 5vw, 72px); align-items: end; }
+.hero-photo { margin: clamp(36px, 5vw, 56px) 0 0; }
+.hero-photo img { display: block; width: 100%; max-width: 100%; height: clamp(260px, 38vw, 560px); object-fit: cover; object-position: 50% 62%; }
 .hero h1 {
-  font-size: clamp(2.4rem, 5.6vw, 4.4rem);
+  font-size: clamp(2.3rem, 5vw, 4rem);
   line-height: 1.02;
   letter-spacing: -0.02em;
   font-weight: 750;
   font-variation-settings: "wdth" 122;
 }
-.hero .lede { margin-top: 26px; max-width: 34em; font-size: 1.15rem; color: var(--ink); }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.hero .lede { max-width: 30em; font-size: 1.15rem; color: var(--ink); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .btn {
   display: inline-block; padding: 13px 22px; font-weight: 600; font-size: .98rem; text-decoration: none;
   border: 1.5px solid var(--navy); color: var(--navy); border-radius: 2px;
 }
 .btn.solid { background: var(--navy); color: var(--stone); }
 .btn:hover { text-decoration: none; background: var(--oak); border-color: var(--oak); color: #fff; }
-.floor { position: relative; width: 100%; max-width: 460px; aspect-ratio: 1; justify-self: end; }
-.floor canvas { width: 100%; height: 100%; display: block; }
+.hero + .block { border-top: 0; }
 
 /* Sections */
 section.block { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--line); }
@@ -133,7 +134,11 @@ section.block { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var
 .dev .brand p { color: var(--muted); font-size: .98rem; }
 .soon { font-size: .88rem; color: var(--muted); font-style: italic; }
 
-/* Approach */
+/* Approach: navy band */
+#approach { background: var(--band); color: var(--band-fg); border-top: 0; }
+#approach h2, #approach dt { color: #fff; }
+#approach .head p { color: var(--band-muted); }
+#approach + #contact { border-top: 0; }
 .principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 64px; margin: 0; }
 .principles div { display: grid; gap: 8px; }
 .principles dt { font-weight: 700; color: var(--navy); font-size: 1.12rem; font-variation-settings: "wdth" 110; }
@@ -150,12 +155,12 @@ section.block { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var
 .copy-btn { font: inherit; font-size: .88rem; padding: 6px 12px; background: none; border: 1px solid var(--line); color: var(--ink); cursor: pointer; border-radius: 2px; }
 .copy-btn:hover { border-color: var(--oak); color: var(--oak); }
 
-footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: .9rem; }
+footer { background: var(--band); color: var(--band-muted); padding-block: 28px 40px; font-size: .9rem; }
 footer .wrap { display: flex; justify-content: space-between; gap: 12px 32px; flex-wrap: wrap; }
 
 @media (max-width: 860px) {
   .hero .wrap { grid-template-columns: 1fr; }
-  .floor { max-width: 340px; justify-self: start; order: -1; }
+  .hero-photo img { object-position: 62% 60%; }
   .head, .feature, .contact { grid-template-columns: 1fr; }
   .dev { grid-template-columns: 1fr; }
   .principles { grid-template-columns: 1fr; }
@@ -163,7 +168,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px 32px; fl
 @media (max-width: 620px) {
   .pair { grid-template-columns: 1fr; }
   .nav { gap: 18px; }
-  .floor { max-width: 240px; }
 }
 </style>
 </head>
@@ -186,16 +190,16 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px 32px; fl
 <main id="top">
   <section class="hero">
     <div class="wrap">
+      <h1>Building the UK&rsquo;s Leading Flooring &amp; Interiors Brands</h1>
       <div>
-        <h1>The group behind DMS, Brampton Chase and Loom &amp; Weave.</h1>
-        <p class="lede">Gowling Group is an independently owned flooring business based in Northampton. We own and run specialist companies across trade distribution, trade counters and our own ranges of LVT and carpet.</p>
+        <p class="lede">Gowling Group is the independently owned group behind DMS Flooring Supplies, Brampton Chase and Loom &amp; Weave, based in Northampton.</p>
         <div class="actions">
           <a class="btn solid" href="#businesses">See our businesses</a>
           <a class="btn" href="#contact">Contact the group</a>
         </div>
       </div>
-      <div class="floor" aria-hidden="true"><canvas id="floor"></canvas></div>
     </div>
+    <figure class="hero-photo"><img src="images/hero-herringbone.jpg" alt="Living room with light oak herringbone flooring" width="2169" height="725"></figure>
   </section>
 
   <section class="block" id="businesses">
@@ -323,90 +327,6 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px 32px; fl
   }
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Herringbone floor, clipped to the diamond of the G mark, laid plank by plank on load
-  var cv = document.getElementById('floor');
-  var ctx = cv.getContext('2d');
-  var planks = [], start = null, size = 0;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function rand(seed) { var x = Math.sin(seed * 9301 + 49297) * 233280; return x - Math.floor(x); }
-
-  function build() {
-    planks = [];
-    var W = size / 15, L = W * 4;
-    // Pattern built in a rotated frame: staircase of horizontal + vertical planks.
-    var n = 0, R = size * 1.8;
-    for (var j = -20; j <= 20; j++) {
-      for (var k = -60; k <= 60; k++) {
-        var ox = k * W - j * L, oy = k * W + j * L;
-        if (Math.abs(ox) > R || Math.abs(oy) > R) continue;
-        planks.push({ x: ox, y: oy, w: L, h: W, s: n++ });
-        planks.push({ x: ox, y: oy + W, w: W, h: L, s: n++ });
-      }
-    }
-  }
-
-  function tok(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-
-  function draw(t) {
-    var dpr = window.devicePixelRatio || 1, c = size / 2;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, size, size);
-    var tones = [tok('--oak-1'), tok('--oak-2'), tok('--oak-3'), tok('--oak-4')];
-    var grain = tok('--grain');
-    ctx.save();
-    // diamond clip
-    ctx.beginPath();
-    ctx.moveTo(c, 2); ctx.lineTo(size - 2, c); ctx.lineTo(c, size - 2); ctx.lineTo(2, c); ctx.closePath();
-    ctx.clip();
-    ctx.translate(c, c);
-    ctx.rotate(Math.PI / 4);
-    for (var i = 0; i < planks.length; i++) {
-      var p = planks[i];
-      // lay from the bottom point of the diamond upwards
-      var cy = (p.x + p.w / 2 + p.y + p.h / 2) / Math.SQRT2; // screen-space vertical position
-      var delay = ((size / 2 - cy) / size) * 1100;
-      var a = reduce ? 1 : Math.min(1, Math.max(0, (t - delay) / 260));
-      if (a <= 0) continue;
-      var drop = (1 - a) * 6;
-      ctx.globalAlpha = a;
-      ctx.fillStyle = tones[Math.floor(rand(p.s) * tones.length)];
-      ctx.fillRect(p.x - drop, p.y - drop, p.w - 1, p.h - 1);
-      ctx.strokeStyle = grain; ctx.lineWidth = .7;
-      var lines = 2 + Math.floor(rand(p.s + 7) * 2);
-      ctx.beginPath();
-      for (var g = 1; g <= lines; g++) {
-        var f = g / (lines + 1) + (rand(p.s + g) - .5) * .12;
-        if (p.w > p.h) { ctx.moveTo(p.x - drop + 3, p.y - drop + p.h * f); ctx.lineTo(p.x - drop + p.w - 4, p.y - drop + p.h * f); }
-        else { ctx.moveTo(p.x - drop + p.w * f, p.y - drop + 3); ctx.lineTo(p.x - drop + p.w * f, p.y - drop + p.h - 4); }
-      }
-      ctx.stroke();
-    }
-    ctx.restore();
-    ctx.globalAlpha = 1;
-  }
-
-  function resize() {
-    var r = cv.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
-    size = Math.max(1, Math.round(r.width));
-    cv.width = size * dpr; cv.height = size * dpr;
-    build();
-    draw(1e6);
-  }
-
-  function frame(now) {
-    if (start === null) start = now;
-    var t = now - start;
-    draw(t);
-    if (t < 1500) requestAnimationFrame(frame);
-  }
-
-  resize();
-  if (!reduce) { start = null; requestAnimationFrame(frame); }
-  window.addEventListener('resize', resize);
-  var mq = window.matchMedia('(prefers-color-scheme: dark)');
-  if (mq.addEventListener) mq.addEventListener('change', function () { draw(1e6); });
-  new MutationObserver(function () { draw(1e6); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 })();
 </script>
 
